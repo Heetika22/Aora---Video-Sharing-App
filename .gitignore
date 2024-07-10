@@ -3,6 +3,8 @@
 # dependencies
 node_modules/
 
+lib/appwrite.js
+
 # Expo
 .expo/
 dist/
