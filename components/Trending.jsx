@@ -25,7 +25,6 @@ const zoomOut ={
 const TrendingItem = ({activeItem, item}) => {
 
   const [play, setPlay] = useState(false);
-  console.log(item.video)
   return (
     <Animatable.View className="mr-5"
       animation={activeItem === item.$id ? zoomIn: zoomOut}
@@ -37,7 +36,6 @@ const TrendingItem = ({activeItem, item}) => {
             useNativeControls 
             shouldPlay 
             onPlaybackStatusUpdate={(status) =>{
-              console.log(status);
               if(status.didJustFinish){
                 setPlay(false);
               }

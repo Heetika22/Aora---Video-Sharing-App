@@ -16,7 +16,7 @@ const Home = () => {
   //console.log(posts);
 
   const {data: latestPosts, } = useAppwrite(getLatestPosts);
-  console.log(latestPosts);
+  // console.log(latestPosts);
 
   const[refreshing, setRefreshing]= useState(false);
   const onRefresh= async () =>{
@@ -31,7 +31,7 @@ const Home = () => {
       <StatusBar backgroundColor='#161622' style="light"></StatusBar>
       <FlatList 
         data={posts}
-        keyExtractor={(item)=>{item.$id}}
+        keyExtractor={(item)=>item.$id}
         renderItem={({item}) => (
             <VideoCard video={item}/>
         )}

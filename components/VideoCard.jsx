@@ -35,7 +35,6 @@ const VideoCard = ({video: {title, thumbnail, video, creator:{username, avatar}}
                useNativeControls 
                shouldPlay 
                onPlaybackStatusUpdate={(status) =>{
-                 console.log(status);
                  if(status.didJustFinish){
                    setPlay(false);
                  }
