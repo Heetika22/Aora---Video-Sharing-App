@@ -25,8 +25,8 @@ const SignIn = () => {
     SetIsSubmitting(true);
     try{
      await signIn(form.email, form.password);
+     //set it to global state using context
      const result= await getCurrentUser();
-      //set it to global state using context
       setUser(result);
       setIsLoggedIn(true);
       Alert.alert("Success", "User signed in successfully");
