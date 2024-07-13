@@ -5,15 +5,15 @@ import { StatusBar } from 'expo-status-bar'
 import {images} from '../../constants'
 import SearchInput from '../../components/SearchInput'
 import EmptyState from '../../components/EmptyState'
-import { getAllPosts, getLatestPosts } from '../../lib/appwrite'
+import { fetchSavedVideos, getAllPosts, getLatestPosts } from '../../lib/appwrite'
 import useAppwrite from '../../lib/useAppwrite'
 import VideoCard from '../../components/VideoCard'
 import { useGlobalContext } from '../../context/GlobalProvider'
 
 const Saved = () => {
-  const {user, setUser, setIsLoggedIn} = useGlobalContext();
+  const {user} = useGlobalContext();
 
-  const {data: posts, refetch} = useAppwrite(getAllPosts);
+  const {data: posts, refetch} = useAppwrite(() =>fetchSavedVideos(user.$id));
   //console.log(posts);
 
   const[refreshing, setRefreshing]= useState(false);
@@ -31,7 +31,7 @@ const Saved = () => {
         data={posts}
         keyExtractor={(item)=>item.$id}
         renderItem={({item}) => (
-            <VideoCard video={item}/>
+            <VideoCard video={item} context="savedVideos"/>
         )}
         ListHeaderComponent={() => (
           <View className="my-6 px-4 space-y-6">

@@ -35,7 +35,7 @@ const Home = () => {
         data={posts}
         keyExtractor={(item)=>item.$id}
         renderItem={({item}) => (
-            <VideoCard video={item}/>
+            <VideoCard video={item} context='home'/>
         )}
         ListHeaderComponent={() => (
           <View className="my-6 px-4 space-y-6">
