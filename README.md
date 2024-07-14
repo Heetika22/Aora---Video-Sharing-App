@@ -1,10 +1,10 @@
-# Video Sharing App- AORA
+# Video Sharing App- AORA ✨✨
 
 ## Overview
 
 This is a mobile application built with Expo and React Native that allows users to share videos, save or unsave them, and delete them. The app provides an intuitive and seamless user experience for interacting with video content, including viewing, saving, and managing videos.
 
-## Features
+## Features 🌟
 
 - **User Authentication:** Secure login and signup functionality.
 - **Video Sharing:** Users can upload and share videos with others.
@@ -55,28 +55,27 @@ This app leverages [Appwrite](https://appwrite.io/) for most backend services in
 - **Database:** Appwrite's built-in database is used for managing video metadata and user interactions.
 - **File Storage:** Videos and thumbnails are stored using Appwrite's file storage services.
 
-## Screenshots
+## Screenshots  📸
 
 Here are some screenshots of the app:
 
 ### Home Screen
-![Home Screen](./screenshots/home-page.jpg)
+<img src="./screenshots/home-page.png" width="300" alt="Home Screen">
 
 ### Video Player
-![Video Player](./screenshots/home-(2).jpg)
+<img src="./screenshots/home-(2).jpg" width="300" alt="Video Player">
 
 ### Profile page
-![Profile Page](./screenshots/profile-page.jpeg)
+<img src="./screenshots/profile-page.jpeg" width="300" alt="Profile Page">
 
 ### Saved Videos
-![Saved Videos](./screenshots/saved-videos.jpg)
+<img src="./screenshots/saved-videos.jpg" width="300" alt="Saved Videos">
 
 ### Upload Video
-![Upload Videos](./screenshots/upload-(2).jpg)
+<img src="./screenshots/upload-(2).jpg" width="300" alt="Upload Videos">
 
 ### Search Video
-![Search Videos](./screenshots/Search.jpg)
-
+<img src="./screenshots/Search.jpg" width="300" alt="Search Videos">
 ## Getting Started
 
 ### Prerequisites
