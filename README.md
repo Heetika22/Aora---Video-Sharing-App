@@ -136,7 +136,7 @@ AORA/
 ├── app/ # Screen components
 ├── lib/ # Utility functions and API calls
 ├── package.json # Project dependencies and scripts
-├── screenshots # glimpses of the app
+├── screenshots/ # Glimpses of the app
 └── README.md # Project documentation
 
 ## Contributing
