@@ -174,7 +174,11 @@ Contributions are welcome! Please fork this repository and submit a pull request
 https://youtu.be/ZBCUegTZF7M?si=NLIZFwk3Xv7-x2Go -- Javascript Mastery
 
 New Features apart from this video- 
+
 -- save your favourite videos
+
 -- fetch your saved video in dedicated tab for saved videos with search implementation
+
 -- unsave the videos that you have previously saved
+
 -- delete  from your Profile
