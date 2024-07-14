@@ -60,7 +60,7 @@ This app leverages [Appwrite](https://appwrite.io/) for most backend services in
 Here are some screenshots of the app:
 
 ### Home Screen
-<img src="./screenshots/home-page.png" width="300" alt="Home Screen">
+<img src="./screenshots/home-page.jpg" width="300" alt="Home Screen">
 
 ### Video Player
 <img src="./screenshots/home-(2).jpg" width="300" alt="Video Player">
