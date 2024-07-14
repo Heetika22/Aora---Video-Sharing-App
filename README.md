@@ -130,7 +130,9 @@ Here are some screenshots of the app:
 ## Project Structure
 
 AORA/
+
 │
+
 ├── assets/              # Assets such as images, fonts, etc.
 
 ├── components/          # Reusable components
