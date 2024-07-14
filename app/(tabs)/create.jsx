@@ -32,7 +32,7 @@ const Create = () => {
     if (!result.canceled) {
       console.log(result);
     } else {
-      alert('You did not select any image.');
+      alert('You did not select any media.');
     }
 
     if(!result.canceled){

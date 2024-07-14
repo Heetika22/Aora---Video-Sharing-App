@@ -1,24 +1,19 @@
-import { Alert, FlatList, Image, RefreshControl, StyleSheet, Text, View } from 'react-native'
+import { Alert, FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
 import {images} from '../../constants'
 import SearchInput from '../../components/SearchInput'
-import Trending from '../../components/Trending'
 import EmptyState from '../../components/EmptyState'
-import { getAllPosts, getLatestPosts } from '../../lib/appwrite'
+import { fetchSavedVideos, getAllPosts, getLatestPosts } from '../../lib/appwrite'
 import useAppwrite from '../../lib/useAppwrite'
 import VideoCard from '../../components/VideoCard'
 import { useGlobalContext } from '../../context/GlobalProvider'
 
-const Home = () => {
-  const {user, setUser, setIsLoggedIn} = useGlobalContext();
+const Saved = () => {
+  const {user} = useGlobalContext();
 
-  const {data: posts, refetch} = useAppwrite(getAllPosts);
-  //console.log(posts);
-
-  const {data: latestPosts, } = useAppwrite(getLatestPosts);
-  //console.log(latestPosts);
+  const {data: posts, refetch} = useAppwrite(() =>fetchSavedVideos(user.$id));
 
   const[refreshing, setRefreshing]= useState(false);
   const onRefresh= async () =>{
@@ -27,7 +22,11 @@ const Home = () => {
     await refetch();
     setRefreshing(false);
   }
-
+  
+  useEffect(() => {
+    refetch();
+  }, []);
+  
   return (
     <SafeAreaView className="bg-primary h-full">
       <StatusBar backgroundColor='#161622' style="light"></StatusBar>
@@ -35,34 +34,21 @@ const Home = () => {
         data={posts}
         keyExtractor={(item)=>item.$id}
         renderItem={({item}) => (
-            <VideoCard video={item} context='home'/>
+            <VideoCard video={item} context="savedVideos"/>
         )}
         ListHeaderComponent={() => (
           <View className="my-6 px-4 space-y-6">
             <View className="justify-between flex-row items-start mb-6">
-              <View>
-                <Text className="font-pmedium text-sm text-gray-100">Welcome Back,</Text>
-                <Text className="text-2xl font-psemibold text-white">{user?.username}</Text>
-              </View>
-
-              <View className="mt-1.5">
-                <Image source={images.logoSmall} className="w-9 h-10" resizeMode='contain'/>
-              </View>
+             <Text className="text-2xl text-white font-psemibold">Saved Videos</Text>
             </View>
 
-            <SearchInput placeholder= "Search for a video topic"/>
+            <SearchInput placeholder="Search your saved videos"/>
 
-            <View className="w-full flex-1 pt-5 pb-8">
-              <Text className="text-gary-100 text-white font-pregular">
-                Latest Videos
-              </Text>
-              <Trending posts={latestPosts} />
-            </View>
           </View>
         )}
 
         ListEmptyComponent={() => (
-          <EmptyState title="No Videos Found" subtitle="Be the first one to upload a video" />
+          <EmptyState title="No Saved Videos" subtitle="Save your favourite videos now.." />
         )}
 
         refreshControl={<RefreshControl refreshing= {refreshing} onRefresh={onRefresh}/>}
@@ -71,6 +57,6 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Saved
 
 const styles = StyleSheet.create({})
