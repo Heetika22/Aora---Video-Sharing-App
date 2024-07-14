@@ -128,16 +128,25 @@ Here are some screenshots of the app:
 - **Delete Video:** Tap the delete button on any video you have uploaded to remove it from the platform.
 
 ## Project Structure
+
 AORA/
 │
-├── assets/ # Assets such as images, fonts, etc.
-├── components/ # Reusable components
-├── context/ # Global context and provider
-├── app/ # Screen components
-├── lib/ # Utility functions and API calls
-├── package.json # Project dependencies and scripts
-├── screenshots/ # Glimpses of the app
-└── README.md # Project documentation
+├── assets/              # Assets such as images, fonts, etc.
+
+├── components/          # Reusable components
+
+├── context/             # Global context and provider
+
+├── app/                 # Screen components
+
+├── lib/                 # Utility functions and API calls
+
+├── package.json         # Project dependencies and scripts
+
+├── screenshots/         # Glimpses of the app
+
+└── README.md            # Project documentation
+
 
 ## Contributing
 
@@ -156,6 +165,7 @@ Contributions are welcome! Please fork this repository and submit a pull request
     git push origin feature-branch
     ```
 6. **Open a pull request.**
+
 
 ## Project References
 
