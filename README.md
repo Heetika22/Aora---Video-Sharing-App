@@ -102,7 +102,7 @@ Here are some screenshots of the app:
 3. **Setup Appwrite Configuration: (you will get them from Appwrite console, just copy paste the id)**
 
     setup in lib/appwrite.js
-
+    ```bash
     APPWRITE_ENDPOINT=your_appwrite_endpoint
     APPWRITE_PROJECT_ID=your_appwrite_project_id
     DATABASE_ID= your_database_id 
