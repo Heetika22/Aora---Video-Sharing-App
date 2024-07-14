@@ -1,4 +1,4 @@
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View , RefreshControl} from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
@@ -10,12 +10,22 @@ import {useGlobalContext} from '../../context/GlobalProvider'
 import { icons } from '../../constants'
 import InfoBox from '../../components/InfoBox'
 import { router } from 'expo-router'
+import { useState } from 'react'
+
 
 const Profile = () => {
   const {user, setUser, setIsLoggedIn} = useGlobalContext();
 
-  const {data: posts} = useAppwrite(() => getUserPosts(user.$id));
+  const {data: posts, refetch} = useAppwrite(() => getUserPosts(user.$id));
   //console.log(posts);
+
+  const[refreshing, setRefreshing]= useState(false);
+  const onRefresh= async () =>{
+    setRefreshing(true);
+    //re call videos if any new videos come
+    await refetch();
+    setRefreshing(false);
+  }
   
   const logout= async () => {
     await signOut();
@@ -70,6 +80,7 @@ const Profile = () => {
           <EmptyState title="No Videos Found" subtitle="No videos found for this search query" />
         )}
 
+        refreshControl={<RefreshControl refreshing= {refreshing} onRefresh={onRefresh}/>}
       />
     </SafeAreaView>
   )
